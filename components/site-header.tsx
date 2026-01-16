@@ -45,7 +45,9 @@ export function SiteHeader() {
                         <NavigationMenuList className="gap-2">
                             {navItems.map((item) => (
                                 <NavigationMenuItem key={item.href}>
-                                    <Link href={item.href} legacyBehavior passHref>
+                                    <Link href={item.href}>
+                                        {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+                                        }
                                         <NavigationMenuLink
                                             className={cn(
                                                 navigationMenuTriggerStyle(),
@@ -58,7 +60,9 @@ export function SiteHeader() {
                                 </NavigationMenuItem>
                             ))}
                             <NavigationMenuItem>
-                                <Link href="/resume.pdf" target="_blank" legacyBehavior passHref>
+                                <Link href="/resume.pdf" target="_blank">
+                                    {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+                                    }
                                     <NavigationMenuLink
                                         className={cn(
                                             navigationMenuTriggerStyle(),
@@ -109,7 +113,6 @@ export function SiteHeader() {
                     </Sheet>
                 </div>
             </div>
-
             {/* Decorative bottom border line */}
             <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         </header>
