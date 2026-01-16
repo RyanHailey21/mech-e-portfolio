@@ -45,33 +45,31 @@ export function SiteHeader() {
                         <NavigationMenuList className="gap-2">
                             {navItems.map((item) => (
                                 <NavigationMenuItem key={item.href}>
-                                    <Link href={item.href}>
-                                        {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
-                                        }
-                                        <NavigationMenuLink
-                                            className={cn(
-                                                navigationMenuTriggerStyle(),
-                                                "bg-transparent hover:bg-primary/10 hover:text-primary data-[active]:bg-primary/10 data-[active]:text-primary font-mono text-xs tracking-widest"
-                                            )}
-                                        >
+                                    <NavigationMenuLink
+                                        asChild
+                                        className={cn(
+                                            navigationMenuTriggerStyle(),
+                                            "bg-transparent hover:bg-primary/10 hover:text-primary data-[active]:bg-primary/10 data-[active]:text-primary font-mono text-xs tracking-widest cursor-pointer"
+                                        )}
+                                    >
+                                        <Link href={item.href}>
                                             {item.name}
-                                        </NavigationMenuLink>
-                                    </Link>
+                                        </Link>
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
                             ))}
                             <NavigationMenuItem>
-                                <Link href="/resume.pdf" target="_blank">
-                                    {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
-                                    }
-                                    <NavigationMenuLink
-                                        className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-xs tracking-widest ml-4"
-                                        )}
-                                    >
+                                <NavigationMenuLink
+                                    asChild
+                                    className={cn(
+                                        navigationMenuTriggerStyle(),
+                                        "bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-xs tracking-widest ml-4 cursor-pointer"
+                                    )}
+                                >
+                                    <Link href="/resume.pdf" target="_blank">
                                         RESUME
-                                    </NavigationMenuLink>
-                                </Link>
+                                    </Link>
+                                </NavigationMenuLink>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
